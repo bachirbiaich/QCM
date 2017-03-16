@@ -1,3 +1,4 @@
 qcm:
-    resource: "@QcmBundle/Resources/config/routing.yml"
+    resource: "@QcmBundle/Controller/DefaultController.php"
+    type:     annotation
     prefix:   /
