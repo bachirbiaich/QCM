@@ -7,7 +7,7 @@ class Question
     private $id;
     private $question;
     private $reponse; //Réponse à la question
-    private $propositions;
+    private $propositions; //Array de string avec des propositions bidons
 
     /**
      * @return mixed
@@ -71,6 +71,6 @@ class Question
     public function setPropositions($propositions)
     {
         $this->propositions = $propositions;
-    } //Array de string avec des propositions bidons
+    }
 
 }

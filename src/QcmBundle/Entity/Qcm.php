@@ -6,7 +6,7 @@ class Qcm
 {
     private $id;
     private $titre; //Titre du QCM
-    private $questions;
+    private $questions; //Array contenant les questions
 
     /**
      * @return mixed
@@ -54,6 +54,6 @@ class Qcm
     public function setQuestions($questions)
     {
         $this->questions = $questions;
-    } //Array contenant les questions
+    }
 
 }
