@@ -1,13 +1,57 @@
 <?php
 
-namespace QcmBundle\Question;
+namespace QcmBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="question")
+ */
 class Question
 {
-    private $id;
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     */private $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     private $question;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     private $reponse; //Réponse à la question
+
+    /**
+     * @ORM\Column(type="string")
+     */
     private $propositions; //Array de string avec des propositions bidons
+
+    /**
+     *
+     * @ORM\OneToOne(targetEntity="QcmBundle\Entity\Qcm")
+     */
+    private $qcm;
+
+    /**
+     * @return mixed
+     */
+    public function getQcm()
+    {
+        return $this->qcm;
+    }
+
+    /**
+     * @param mixed $qcm
+     */
+    public function setQcm($qcm)
+    {
+        $this->qcm = $qcm;
+    }
 
     /**
      * @return mixed

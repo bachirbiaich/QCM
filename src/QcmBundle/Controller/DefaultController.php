@@ -18,4 +18,11 @@ class DefaultController extends Controller
     }
 
 
+    /**
+     * @Route("/reponse",name="qcm_reponsepage")
+     */
+    public function reponseAction()
+    {
+        return $this->render('QcmBundle:Default:index.html.twig');
+    }
 }

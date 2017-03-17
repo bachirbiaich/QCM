@@ -1,14 +1,39 @@
 <?php
 
-namespace QcmBundle\Resultat;
+namespace QcmBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="resultat")
+ */
 class Resultat
 {
-    private $id;
+
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     */private $id;
+    /**
+     * @ORM\Column(type="string")
+     */
     private $user;
+    /**
+     * @ORM\Column(type="integer")
+     */
     private $nbReponsesOK;
+    /**
+     * @ORM\Column(type="integer")
+     */
     private $nbQuestions;
-    private $id_Qcm;
+
+
+    /**
+     * @ORM\OneToOne(targetEntity="QcmBundle\Entity\Qcm" )
+     */
+    private $qcm;
 
     /**
      * @return mixed

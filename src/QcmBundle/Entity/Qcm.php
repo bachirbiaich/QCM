@@ -1,11 +1,31 @@
 <?php
 
-namespace QcmBundle\Qcm;
+namespace QcmBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="qcm")
+ */
 class Qcm
 {
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     */
     private $id;
+    /**
+     * @ORM\Column(type="string")
+     */
     private $titre; //Titre du QCM
+
+
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="QcmBundle\Entity\Question",mappedBy="id" )
+     */
     private $questions; //Array contenant les questions
 
     /**
