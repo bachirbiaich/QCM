@@ -82,4 +82,20 @@ class Qcm
         $this->questions = $questions;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getResultats()
+    {
+        return $this->resultats;
+    }
+
+    /**
+     * @param mixed $resultats
+     */
+    public function setResultats($resultats)
+    {
+        $this->resultats = $resultats;
+    }
+
 }
