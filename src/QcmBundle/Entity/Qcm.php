@@ -2,6 +2,7 @@
 
 namespace QcmBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -33,6 +34,11 @@ class Qcm
      * @ORM\OneToMany(targetEntity="QcmBundle\Entity\Resultat",mappedBy="id" )
      */
     private $resultats; //Array contenant les resultats
+
+    public function __construct() {
+        $this->resultats = new ArrayCollection();
+        $this->questions = new ArrayCollection();
+    }
 
     /**
      * @return mixed
