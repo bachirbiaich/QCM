@@ -29,6 +29,12 @@ class Qcm
     private $questions; //Array contenant les questions
 
     /**
+     *
+     * @ORM\OneToMany(targetEntity="QcmBundle\Entity\Resultat",mappedBy="id" )
+     */
+    private $resultats; //Array contenant les resultats
+
+    /**
      * @return mixed
      */
     public function getId()
