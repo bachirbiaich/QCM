@@ -15,15 +15,19 @@ class Resultat
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
-     */private $id;
+     */
+    private $id;
+
     /**
      * @ORM\Column(type="string")
      */
     private $user;
+
     /**
      * @ORM\Column(type="integer")
      */
     private $nbReponsesOK;
+
     /**
      * @ORM\Column(type="integer")
      */
@@ -102,17 +106,17 @@ class Resultat
     /**
      * @return mixed
      */
-    public function getIdQcm()
+    public function getQcm()
     {
-        return $this->id_Qcm;
+        return $this->qcm;
     }
 
     /**
-     * @param mixed $id_Qcm
+     * @param mixed $qcm
      */
-    public function setIdQcm($id_Qcm)
+    public function setQcm($qcm)
     {
-        $this->id_Qcm = $id_Qcm;
+        $this->qcm = $qcm;
     }
 
 }

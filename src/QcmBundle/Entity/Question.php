@@ -27,7 +27,7 @@ class Question
     private $reponse; //Réponse à la question
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="array")
      */
     private $propositions; //Array de string avec des propositions bidons
 
@@ -36,22 +36,6 @@ class Question
      * @ORM\OneToOne(targetEntity="QcmBundle\Entity\Qcm")
      */
     private $qcm;
-
-    /**
-     * @return mixed
-     */
-    public function getQcm()
-    {
-        return $this->qcm;
-    }
-
-    /**
-     * @param mixed $qcm
-     */
-    public function setQcm($qcm)
-    {
-        $this->qcm = $qcm;
-    }
 
     /**
      * @return mixed
@@ -115,6 +99,22 @@ class Question
     public function setPropositions($propositions)
     {
         $this->propositions = $propositions;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQcm()
+    {
+        return $this->qcm;
+    }
+
+    /**
+     * @param mixed $qcm
+     */
+    public function setQcm($qcm)
+    {
+        $this->qcm = $qcm;
     }
 
 }
