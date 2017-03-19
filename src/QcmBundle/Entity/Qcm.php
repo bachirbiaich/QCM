@@ -25,13 +25,13 @@ class Qcm
 
     /**
      *
-     * @ORM\OneToMany(targetEntity="QcmBundle\Entity\Question",mappedBy="id" )
+     * @ORM\OneToMany(targetEntity="QcmBundle\Entity\Question",mappedBy="id",cascade={"persist", "remove", "merge"}) )
      */
     private $questions; //Array contenant les questions
 
     /**
      *
-     * @ORM\OneToMany(targetEntity="QcmBundle\Entity\Resultat",mappedBy="id" )
+     * @ORM\OneToMany(targetEntity="QcmBundle\Entity\Resultat",mappedBy="id", cascade={"persist", "remove", "merge"}) )
      */
     private $resultats; //Array contenant les resultats
 

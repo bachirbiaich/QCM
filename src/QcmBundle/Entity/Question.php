@@ -33,7 +33,7 @@ class Question
 
     /**
      *
-     * @ORM\OneToOne(targetEntity="QcmBundle\Entity\Qcm")
+     * @ORM\ManyToOne(targetEntity="QcmBundle\Entity\Qcm",cascade={"persist", "remove", "merge"})
      */
     private $qcm;
 
