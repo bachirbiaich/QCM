@@ -3,6 +3,7 @@
 namespace QcmBundle\Controller;
 
 
+use QcmBundle\Entity\Resultat;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,8 +27,29 @@ class AnswerController extends Controller
     public function renseignerAction(Request $request,$id)
     {
         $qcmRepository = $this->getDoctrine()->getManager()->getRepository('QcmBundle:Question')->findBy(['qcm'=>$id]);
+        $titre = $this->getDoctrine()->getManager()->getRepository('QcmBundle:Qcm')->find($id);
         $qcm = $qcmRepository;
 
-        return $this->render('QcmBundle:Answer:renseigner.html.twig',array('qcm'=>$qcm));
+        if ($request->isMethod('POST')){
+            $nbReponsesOK =0;
+            $proposition = $request->get('proposition');
+            foreach ($qcm as $value){
+                if ($value->getReponse() == $proposition[$value->getId()]){
+                    $nbReponsesOK = $nbReponsesOK+1;
+                }
+            }
+            $resultat =  new Resultat();
+            $resultat->setUser($request->request->get('user'));
+            $resultat->setNbQuestions(count($qcm));
+            $resultat->setNbReponsesOK($nbReponsesOK);
+            $resultat->setQcm($titre);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($resultat);
+            $em->flush();
+            $this->addFlash('success', 'Merci d\'avoir renseignez ce qcm!');
+            return $this->redirectToRoute('qcmResults_index');
+
+        }
+        return $this->render('QcmBundle:Answer:renseigner.html.twig',array('qcm'=>$qcm,'titre'=>$titre));
     }
 }
