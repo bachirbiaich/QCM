@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+
+    {% block customCss %}<!-- Place for custom css -->{% endblock %}
+
     <script src="{{ asset("js/jquery.js") }}"></script>
     <script src="{{ asset("js/validator.js") }}"></script>
     {% block titre %}<title>QCM</title>{% endblock %}
