@@ -16,6 +16,8 @@ class CreateController extends Controller
 
     /**
      * @Route("/",name="qcmCreate_index")
+     * @param Request $request
+     * @return Response
      */
     public function indexAction(Request $request)
     {

@@ -33,7 +33,23 @@ class Qcm
      *
      * @ORM\OneToMany(targetEntity="QcmBundle\Entity\Resultat",mappedBy="id", cascade={"persist", "remove", "merge"}) )
      */
-    private $resultats; //Array contenant les resultats
+    private $resultats;
+
+    /**
+     * @return mixed
+     */
+    public function getResultats()
+    {
+        return $this->resultats;
+    }
+
+    /**
+     * @param mixed $resultats
+     */
+    public function setResultats($resultats)
+    {
+        $this->resultats = $resultats;
+    } //Array contenant les resultats
 
     public function __construct() {
         $this->resultats = new ArrayCollection();
@@ -88,20 +104,5 @@ class Qcm
         $this->questions = $questions;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getResultats()
-    {
-        return $this->resultats;
-    }
-
-    /**
-     * @param mixed $resultats
-     */
-    public function setResultats($resultats)
-    {
-        $this->resultats = $resultats;
-    }
 
 }
