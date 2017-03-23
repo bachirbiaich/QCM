@@ -42,7 +42,7 @@ class CreateController extends Controller
                 $questions[] = array(
                     'question' => $question,
                     'reponse' => $reponse,
-                    'propositions' => array($prop1,$prop2,$prop3)
+                    'propositions' => array($prop1,$prop2,$prop3,$reponse)
                 );
             }
 

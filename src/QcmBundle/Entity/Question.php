@@ -29,7 +29,7 @@ class Question
     /**
      * @ORM\Column(type="array")
      */
-    private $propositions; //Array de string avec des propositions bidons
+    private $propositions; //Array de string avec toutes les propositions
 
     /**
      *

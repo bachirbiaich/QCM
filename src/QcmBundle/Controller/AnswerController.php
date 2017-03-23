@@ -30,6 +30,12 @@ class AnswerController extends Controller
         $titre = $this->getDoctrine()->getManager()->getRepository('QcmBundle:Qcm')->find($id);
         $qcm = $qcmRepository;
 
+        foreach ($qcm as $question){
+            $props = $question->getPropositions();
+            shuffle($props);
+            $question->setPropositions($props);
+        }
+
         if ($request->isMethod('POST')){
             $nbReponsesOK =0;
             $proposition = $request->get('proposition');
