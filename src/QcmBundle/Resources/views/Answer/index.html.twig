@@ -15,7 +15,7 @@
                     {% for qcm in listqcm %}
                     <tr>
                         <td>{{ qcm.titre }}</td>
-                        <td><a class="btn btn-info" href="{{ path('qcmAnswerrenseigner_index',{'id' :qcm.id})}}" >Renseigner</a></td>
+                        <td><a class="btn btn-info" href="{{ path('qcmAnswerrenseigner_index',{'id' :qcm.id})}}" >Remplir</a></td>
                     </tr>
                         {% endfor %}
                     </tbody>

@@ -37,7 +37,7 @@ class AnswerController extends Controller
         }
 
         if ($request->isMethod('POST')){
-            $nbReponsesOK =0;
+            $nbReponsesOK = 0;
             $proposition = $request->get('proposition');
             foreach ($qcm as $value){
                 if ($value->getReponse() == $proposition[$value->getId()]){
@@ -52,7 +52,7 @@ class AnswerController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($resultat);
             $em->flush();
-            $this->addFlash('success', 'Merci d\'avoir renseignez ce qcm!');
+            $this->addFlash('success', 'Merci d\'avoir renseigné ce qcm !');
             return $this->redirectToRoute('qcmResults_index');
 
         }
